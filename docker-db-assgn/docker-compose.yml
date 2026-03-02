@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_DB: docker_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Tina3004!
+    ports:
+      - "5432:5432"
+
+  app:
+    build: ./app
+    container_name: app
+    depends_on:
+      - db
